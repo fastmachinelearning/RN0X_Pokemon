@@ -1,4 +1,4 @@
-save_dir: trained_model
+save_dir: resnet_v1_eembc_RN07_2024
 
 model:
   name: resnet_v1_eembc_quantized

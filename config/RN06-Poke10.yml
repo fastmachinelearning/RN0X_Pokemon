@@ -1,4 +1,5 @@
-save_dir: resnet_v1_eembc_RN06_bilinear_croptrain
+save_dir: resnet_v1_eembc_RN06_2024_fo
+# save_dir: resnet_v1_eembc_RN06_2024
 
 model:
   name: resnet_v1_eembc_quantized
@@ -15,6 +16,7 @@ model:
   - '411'
   skip: 0
   avg_pooling: 0
+  final_activation: 1
 
 pruning:
   sparsity: 1.0
@@ -26,8 +28,7 @@ fit:
     optimizer: Adam
     loss: categorical_crossentropy
   epochs: 200
-  #40 paitence
-  patience: 2 
+  patience: 40
   batch_size: 32
   verbose: 1
 
@@ -46,17 +47,24 @@ convert:
   RemoveSoftmax: 1
   OutputDir: ../inference/hls/pynqz2_resnet_m_axi_8_serial_prj
   XilinxPart: xc7z020clg400-1
-  ApplyPatches: 1
+  ApplyPatches: 0
   AxiWidth: 8
-  Interface: m_axi
+  Interface: axi_stream
   Implementation: serial
-  BoardName: pynqz2
-  Backend: Pynq
+  Driver: python
+  Board: pynq-z2
+  Backend: VivadoAccelerator
+  InputType: float
+  OutputType: float
   IOType: io_stream
   Precision: ap_fixed<8,6>
   ReuseFactor: 16384
-  Trace: 0
+  Trace: 1
   Build: 1
+  FIFO_opt: 0
+  FIFO_opt_json: None
+  EEMBC_power: 0
+  MergedRelu: 1
   ClockPeriod: 10
   Strategy: Resource
   Override:

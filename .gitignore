@@ -4,6 +4,8 @@ data/*/*
 
 # Logfiles
 logs/*
+resnet_v1*/
+checkpoints/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
