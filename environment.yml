@@ -1,4 +1,4 @@
-name: tiny-mlperf-env
+name: demo-env
 channels:
   - conda-forge
 dependencies:
@@ -17,7 +17,8 @@ dependencies:
     - tqdm
     - git+https://github.com/google/qkeras#egg=qkeras
     - keras-flops
-    - git+https://github.com/kentaroy47/keras-Opcounter
+    # - git+https://github.com/kentaroy47/keras-Opcounter
     - keras-tuner
     - setgpu
     - mplhep
+    

@@ -22,7 +22,7 @@ import json
 import datetime
 import numpy as np 
 import pickle
-import kerop
+# import kerop
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -150,14 +150,14 @@ def main(args):
     print('#################')
 
     # analyze FLOPs (see https://github.com/kentaroy47/keras-Opcounter)
-    layer_name, layer_flops, inshape, weights = kerop.profile(model)
+    # layer_name, layer_flops, inshape, weights = kerop.profile(model)
 
     # visualize FLOPs results
-    total_flop = 0
-    for name, flop, shape in zip(layer_name, layer_flops, inshape):
-        print("layer:", name, shape, " MFLOPs:", flop/1e6)
-        total_flop += flop
-    print("Total FLOPs: {} MFLOPs".format(total_flop/1e6))
+    # total_flop = 0
+    # for name, flop, shape in zip(layer_name, layer_flops, inshape):
+    #     print("layer:", name, shape, " MFLOPs:", flop/1e6)
+    #     total_flop += flop
+    # print("Total FLOPs: {} MFLOPs".format(total_flop/1e6))
     '''
     tf.keras.utils.plot_model(model,
                               to_file="model.png",
